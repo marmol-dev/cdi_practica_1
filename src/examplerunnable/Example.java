@@ -11,7 +11,7 @@ public class Example implements Runnable{
 	
 	public static void main (String args[]) throws InterruptedException{
 		Map hilos;
-		//Thread.sleep(1000);
+		Thread.sleep(1000);
 		(new Thread(new Example())).start();
 		hilos = Thread.getAllStackTraces();
 		Iterator<Thread> it = hilos.keySet().iterator();
