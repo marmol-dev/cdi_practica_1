@@ -8,20 +8,22 @@ import java.util.Vector;
 public class Example implements Runnable{
 	
 	private int numHilo;
+	private long tiempoEjecuccion;
 	
 	public Example(int numHilo){
 		this.numHilo = numHilo;
 	}
 	
+	public long getTiempoEjecuccion() {
+		return this.tiempoEjecuccion;
+	}
 	
 	
 	public void run(){
-		//long inicio = System.currentTimeMillis();
+		long inicio = System.currentTimeMillis();
 		System.out.println("Hello, I'm thread number " + this.numHilo);
 		System.out.println("Bye, this was thread number " + this.numHilo);
-		//long fin = System.currentTimeMillis();
-		//Tiempo de ejecucción del hilo
-		//System.out.println("Tiempo hilo " + this.numHilo + " : " + (fin - inicio));
+		this.tiempoEjecuccion = System.currentTimeMillis() - inicio;
 	}
 	
 	public static void main (String args[]) throws InterruptedException{
@@ -33,12 +35,15 @@ public class Example implements Runnable{
 			numHilos = Integer.parseInt(args[0]);
 		}else{
 			System.out.print("Numero incorrecto de parametros de entrada");
+			return;
 		}
 		
 		Vector<Thread> j = new Vector<Thread>();
+		Vector<Example> runnables = new Vector<Example>();
 		
 		for(int i = 0; i < numHilos; i++){
-			j.add(new Thread(new Example(i)));
+			runnables.add(new Example(i));
+			j.add(new Thread(runnables.get(i)));
 			j.get(i).start();
 		}
 		
@@ -47,7 +52,14 @@ public class Example implements Runnable{
 		}
 		
 		long fin = System.currentTimeMillis();
-		System.out.println("Tiempo de ejecucción de hilos : " + (fin - inicio));
+		System.out.println("Tiempo de ejecucción de hilos global: " + (fin - inicio));
+		
+		long tiempoSumaHilos = 0;
+		for (int i = 0; i < numHilos; i++){
+			tiempoSumaHilos += runnables.get(i).getTiempoEjecuccion();
+		}
+		
+		System.out.println("Tiempo total de suma de hilos: " + tiempoSumaHilos);
 		
 	}
 
