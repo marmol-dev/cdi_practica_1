@@ -2,6 +2,7 @@ package examplerunnable;
 
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Vector;
 
 
 public class Example implements Runnable{
@@ -15,17 +16,17 @@ public class Example implements Runnable{
 	
 	
 	public void run(){
+		//long inicio = System.currentTimeMillis();
 		System.out.println("Hello, I'm thread number " + this.numHilo);
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			return;
-		}
 		System.out.println("Bye, this was thread number " + this.numHilo);
+		//long fin = System.currentTimeMillis();
+		//Tiempo de ejecucción del hilo
+		//System.out.println("Tiempo hilo " + this.numHilo + " : " + (fin - inicio));
 	}
 	
 	public static void main (String args[]) throws InterruptedException{
+		long inicio = System.currentTimeMillis();
+		
 		int numHilos = 0;
 		
 		if(args.length == 1){
@@ -34,9 +35,20 @@ public class Example implements Runnable{
 			System.out.print("Numero incorrecto de parametros de entrada");
 		}
 		
+		Vector<Thread> j = new Vector<Thread>();
+		
 		for(int i = 0; i < numHilos; i++){
-			new Thread(new Example(i)).start();
+			j.add(new Thread(new Example(i)));
+			j.get(i).start();
 		}
+		
+		for(int i = 0; i < numHilos; i++){
+			j.get(i).join();
+		}
+		
+		long fin = System.currentTimeMillis();
+		System.out.println("Tiempo de ejecucción de hilos : " + (fin - inicio));
+		
 	}
 
 }
