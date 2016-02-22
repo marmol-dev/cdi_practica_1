@@ -44,6 +44,11 @@ Esta suma no es fiable. Desde que se ejecuta el hilo (empieza a contar el tiempo
 
 El tiempo real coincide con el tiempo de ejecucción de hilos global. El tiempo de usuario es mayor que el tiempo del sistema debido a que el tiempo del usuario es el tiempo que está "en el procesador" ejecutándose y el tiempo de sistema es el tiempo que está "en el kernel" ejecutándose.
 
+### 5. Trata de modificar el programa para poder distinguir entre tiempo de creación de hilos, tiempo de ejecución de los hilos y tiempo de sincronzación final de los hilos*. Si tan pronto como se crea cada hilo ya se intenta ejecutar, ¿se puede distinguir entre estos tiempos? ¿Qué consecuencias tiene esto a la hora de diseñar y evaluar soluciones concurrentes a un problema?
+
+No.
+
+Si se crea el hilo y se intenta ejecutar no se puede distinguir el tiempo de creación con el de ejecucción de manera precisa.
 
 
 
