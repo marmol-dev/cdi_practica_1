@@ -28,13 +28,22 @@ ID: 3, Name: Finalizer
 
 ## 2. Creación de múltiples hilos
 
-##1. Escribe un programa en Java que mediante parámetros de línea de commando reciba cuantos hilos se debe crear. El programa creará y ejecutará el número de hilos indicado. Cada hilo debe imprimir en pantalla un mensaje como Hello, I’m thread number X , y después de un segundo, un mensaje como Bye, this was thread number X , siendo X el valor de un contador que se va incrementando con el número de hilos creados.
+### 1. Escribe un programa en Java que mediante parámetros de línea de commando reciba cuantos hilos se debe crear. El programa creará y ejecutará el número de hilos indicado. Cada hilo debe imprimir en pantalla un mensaje como Hello, I’m thread number X , y después de un segundo, un mensaje como Bye, this was thread number X , siendo X el valor de un contador que se va incrementando con el número de hilos creados.
 
-##2. Queremos ahora medir el tiempo que tardan en ejecutarse todos los hilos que se crean. Copia y modifica el programa anterior para que muestre este tiempo. Asegúrate de quitar cualquier código que implemente esperas en el hilo, que pudieras haber añadido anteriormente, para medir realmente sólo el tiempo de ejecución de los hilos.
+### 2. Queremos ahora medir el tiempo que tardan en ejecutarse todos los hilos que se crean. Copia y modifica el programa anterior para que muestre este tiempo. Asegúrate de quitar cualquier código que implemente esperas en el hilo, que pudieras haber añadido anteriormente, para medir realmente sólo el tiempo de ejecución de los hilos.
 
-##3. ¿Cómo debemos hacer para asegurarnos de que la medida de tiempo sea fiable? Es decir, que realmente se mide el tiempo desde que se arranca el primer hilo hasta que todos los hilos hayan finalizado. ¿Qué errores de medida de tiempo pueden ocurrir, si no nos aseguramos de que todos los hilos han acabado?
+### 3. ¿Cómo debemos hacer para asegurarnos de que la medida de tiempo sea fiable? Es decir, que realmente se mide el tiempo desde que se arranca el primer hilo hasta que todos los hilos hayan finalizado. ¿Qué errores de medida de tiempo pueden ocurrir, si no nos aseguramos de que todos los hilos han acabado?
 Utilizando em metodo join en cada hilo.
 Que se ejecute el codigo del main antes de que termine el ultimo hilo.
+
+### 4.  Copia y modifica el programa para que cada hilo mida él mismo el tiempo que tarda en ejecutarse y guarde el valor en un atributo accesible públicamente. Una vez finalizados todos los hilos, haz que el programa principal sume todos estos valores y muestre en pantalla el resultado. ¿Este valor será mayor o menor que el tiempo global que ya estabas midiendo? ¿Por qué? ¿Te sirve esta suma para algo? ¿Qué harías tú con estos valores para tener algo interesante? Compara tus mediciones con la salida del comando time en Linux que te ofrece tiempo real, tiempo del user y tiempo del sistema.
+
+El tiempo total es mayor. Este tiempo es similar al que se tardaría si no se utilizase un sistema concurrente y cada hilo se ejecutase en secuencial.
+
+Esta suma no es fiable. Desde que se ejecuta el hilo (empieza a contar el tiempo) hasta que de destruye (se para el contador de tiempo) la CPU no está siendo dedicada en su totalidad a dicho hilo, sino que el sistema operativo aplica una estrategia de reparto en la que se le puede quitar y ceder varias veces (dependiendo del número de instrucciones) pero sin embargo el contador de tiempo considera que se la ha estado dedicando integramente.
+
+
+
 
 
 
