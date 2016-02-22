@@ -50,6 +50,17 @@ No.
 
 Si se crea el hilo y se intenta ejecutar no se puede distinguir el tiempo de creación con el de ejecucción de manera precisa.
 
+### 6.  Copia y modifica el programa para que los hilos o bien muestren algo por pantalla o bien que hagan por ejemplo unas operaciones matemáticas suficientemente complejas. Distingue el modo de ejecución mediante un parámetro en línea de comando. La ejecución del programa por prueba debe durar unos segundos para obtener mediciones interpretables. Pruébalo con un número creciente de hilos para conseguir finalmente una función de tiempo de ejecución en relación al número de hilos trabajadores (y modo de ejecución). ¿Cambia mucho el tiempo de ejecución respecto a cuándo se mostraba algo en pantalla? ¿Por qué crees que ocurre esto? ¡Interpreta detenidamente los gráficos que obtienes!
+       
+       
+> ¡Es interesante que antes de realizar las mediciones intentes predecir los resultados por lo menos
+> cualitativamente y averiguar si tu predicción coincida con los resultados medidos!
+> ¡Es interesante realizar las mediciones en diferentes entornos, respecto a hardware, sistema
+> operativo, y máquina virtual de Java!
+
+
+
+
 
 
 

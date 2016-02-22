@@ -8,21 +8,57 @@ import java.util.Vector;
 public class Example implements Runnable{
 	
 	private int numHilo;
+	private int modoOperacion;
+
 	private long tiempoEjecuccion;
 	
-	public Example(int numHilo){
+	public Example(int numHilo, int modoOperacion){
+
 		this.numHilo = numHilo;
+		this.modoOperacion = modoOperacion;
 	}
 	
 	public long getTiempoEjecuccion() {
 		return this.tiempoEjecuccion;
 	}
+
+	public boolean esPrimo(int numero){
+		int contador = 2;
+		boolean primo=true;
+		while ((primo) && (contador!=numero)){
+			if (numero % contador == 0)
+				primo = false;
+			contador++;
+		}
+		return primo;
+	}
+
+	public void generarPrimoAleatorio(){
+		int aleatorio;
+
+		do {
+			aleatorio = ((int) Math.floor(Math.random()*999999)) + 2;
+		} while (!esPrimo(aleatorio));
+	}
+
+	public void escribirMensaje(){
+		System.out.println("Hello world from thread number " + numHilo);
+	}
 	
 	
 	public void run(){
 		long inicio = System.currentTimeMillis();
-		System.out.println("Hello, I'm thread number " + this.numHilo);
-		System.out.println("Bye, this was thread number " + this.numHilo);
+
+		switch(this.modoOperacion){
+			case 1:
+				generarPrimoAleatorio();
+				break;
+			case 2:
+				escribirMensaje();
+				break;
+
+		}
+
 		this.tiempoEjecuccion = System.currentTimeMillis() - inicio;
 	}
 	
@@ -32,9 +68,15 @@ public class Example implements Runnable{
 				inicio_sincronizacion, total_sincronizacion = 0;
 		
 		int numHilos = 0;
+		int modoOperacion;
 		
-		if(args.length == 1){
+		if(args.length == 2){
 			numHilos = Integer.parseInt(args[0]);
+			modoOperacion = Integer.parseInt(args[1]);
+			if (modoOperacion != 1 && modoOperacion != 2){
+				System.out.println("El modo de operacion debe ser 1 o 2");
+				return;
+			}
 		}else{
 			System.out.print("Numero incorrecto de parametros de entrada");
 			return;
@@ -47,7 +89,7 @@ public class Example implements Runnable{
 		//Se cuenta el tiempo de creación
 		inicio_creacion = System.currentTimeMillis();
 		for(int i = 0; i < numHilos; i++){
-			runnables.add(new Example(i));
+			runnables.add(new Example(i, modoOperacion));
 			//Crear Thread
 			j.add(new Thread(runnables.get(i)));
 		}
@@ -70,14 +112,15 @@ public class Example implements Runnable{
 
 		total_ejecuccion = (System.currentTimeMillis() - inicio_ejecuccion) - total_sincronizacion;
 
+		long fin = System.currentTimeMillis();
+
 		System.out.println("Tiempo de creación de hilos: " + total_creacion);
 		System.out.println("Tiempo de ejecucción de hilos: " + total_ejecuccion);
 		System.out.println("Tiempo de sincronización de hilos: " + total_sincronizacion);
+		System.out.println("Tiempo total: " + (fin - inicio));
 
-		long fin = System.currentTimeMillis();
 
-		System.out.println("A ver " + (fin - inicio));
-		
+
 	}
 
 }
