@@ -42,6 +42,8 @@ El tiempo total es mayor. Este tiempo es similar al que se tardaría si no se ut
 
 Esta suma no es fiable. Desde que se ejecuta el hilo (empieza a contar el tiempo) hasta que de destruye (se para el contador de tiempo) la CPU no está siendo dedicada en su totalidad a dicho hilo, sino que el sistema operativo aplica una estrategia de reparto en la que se le puede quitar y ceder varias veces (dependiendo del número de instrucciones) pero sin embargo el contador de tiempo considera que se la ha estado dedicando integramente.
 
+El tiempo real coincide con el tiempo de ejecucción de hilos global. El tiempo de usuario es mayor que el tiempo del sistema debido a que el tiempo del usuario es el tiempo que está "en el procesador" ejecutándose y el tiempo de sistema es el tiempo que está "en el kernel" ejecutándose.
+
 
 
 
