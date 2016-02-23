@@ -62,7 +62,13 @@ Si se crea el hilo y se intenta ejecutar no se puede distinguir el tiempo de cre
 El tiempo al realizar una operación matemática compleja es superior al tiempo de escritura en pantalla por la propia naturaleza del algoritmo matemático (generar números aleatorios en 1 y 1 millón hasta encontrar uno que sea primo).
 
 A medida que se añaden más hilos (x10 en cada paso) el tiempo total es lineal (se ve multiplicado por 10) salvo entre 1000 y 1000.
-(ver anexos 2.6.1 y 2.6.2).
+(ver anexo 2.6.1 y 2.6.2).
+
+![Image Alt](./docs/anexo_2_6_2.png)
+
+---
+Anexo 2.6.2.
+
 
 ## 3. Control básico de múltiples hilos
 
@@ -79,6 +85,22 @@ Sí, es preferible utilizar `interrupt` porque permite al programador establecer
 El método `interrupted()` es un método estático de la clase `Thread` que permite comprobar si el thread actual ha sido interrumpido. Cada vez que se invoca el flag que contiene si el thread está interrumpido o no se resetea, es decir, limpia las interrupciones.
 
 El método `isInterrupted()` es un método de instancia de `Thread` que permite comprobar si ese thread ha sido interrumpido. Mantiene el flag de interrupciones sin modificarlo.
+
+### 3.3  Utiliza uno de estos dos métodos (interrupted() o isInterrupted()) para elaborar un programa que lance un hilo que debe:
+
+- mostrar un mensaje de inicio;
+- luego debe dejar pasar unos 10 segundos, imprimiendo un mensaje aproximadamente cada segundo,
+- y luego mostrar otro mensaje de fin, y terminar.
+
+>  El usuario debe poder enviar una señal de interrupción al hilo. Si esta señal llega antes de que
+>  hayan transcurrido 5 segundos, el hilo debe mostrar un mensaje de que ha recibido la señal,
+>  y volver a ponerse a esperar, hasta terminar los 10 segundos (aproximadamente). Si llega una
+>  vez pasados 5 segundos, debe mostrar un mensaje de que ha sido interrumpido y acabar de
+>  inmediato.
+
++
+
+
 
 
 
