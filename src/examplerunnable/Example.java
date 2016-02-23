@@ -103,6 +103,8 @@ public class Example implements Runnable{
 			j.get(i).start();
 		}
 
+		j.get(0).interrupt();
+
 		//Contador de tiempo de sincronización
 		inicio_sincronizacion = System.currentTimeMillis();
 		for(int i = 0; i < numHilos; i++){

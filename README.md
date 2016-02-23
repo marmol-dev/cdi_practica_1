@@ -68,6 +68,11 @@ A medida que se añaden más hilos (x10 en cada paso) el tiempo total es lineal 
 
 ### 3.1  Estudia en detalle la utilidad del método `interrupt()` de la clase Thread. ¿Qué limitaciones tiene? ¿Cómo debe ser utilizado? Aunque existen otros métodos en la clase `Thread` como `stop()` o `suspend()` ¿Por qué crees que el método `interrupt()` es el método recomendado para detener un hilo?
 
+Qué es el programador el responsable de actuar ante una interrupción.
+
+En el método run (o métodos que sean invocados a partir de este) se debe comprobar si el thread está interrumpido con el método `isInterrupted` de los threads o con el método estático `interrupted` de la clase `Thread`.
+
+Sí, es preferible utilizar `interrupt` porque permite al programador establecer la forma en la que debe terminar un hilo. El método `suspend` no se debe utilizar para finalizar un hilo porque no libera la memoria del thread ya que permite que este sea renaudado con el método `resume`.
 
 
 
