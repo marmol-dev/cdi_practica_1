@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9319a3f-b028-4f02-b874-631639d624aa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/versiones/1.2/Example.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/versiones/1.2/Example2.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/versiones/1.4/Example.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/versiones/2.1/Example.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/versiones/2.2/Example.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/versiones/2.3/Example.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/versiones/2.4/Example.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/versiones/2.5/Example.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="cdi_practica_1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Example.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Example.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/versiones/2.5/Example.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.67741936">
-              <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="78" column="36" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#211#212#0" expanded="true" />
@@ -46,6 +38,32 @@
                 <element signature="e#334#335#0" expanded="true" />
                 <element signature="e#1238#1247#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Example.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/versiones/3.3/Example.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor vertical-scroll-proportion="0.47468355">
+                <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -73,7 +91,6 @@
         <option value="$PROJECT_DIR$/src/examplerunnable/Example.java" />
         <option value="$PROJECT_DIR$/src/examplerunnable/InterruptedExample.java" />
         <option value="$PROJECT_DIR$/src/examplerunnable/Actividad2.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/versiones/1.3/examplerunnable/Example.java" />
         <option value="$PROJECT_DIR$/versiones/1.3/Example.java" />
@@ -85,6 +102,7 @@
         <option value="$PROJECT_DIR$/versiones/2.3/Example.java" />
         <option value="$PROJECT_DIR$/versiones/2.4/Example.java" />
         <option value="$PROJECT_DIR$/versiones/2.5/Example.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -152,25 +170,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="2.5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cdi_practica_1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cdi_practica_1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="versiones" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2.4" />
+              <option name="myItemId" value="3.3" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -579,26 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.050632913">
-            <caret line="82" column="28" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/examplerunnable/InterruptedExample.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.04032258">
@@ -706,8 +686,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/versiones/2.5/Example.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67741936">
-          <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="36" selection-start-line="78" selection-start-column="36" selection-end-line="78" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#211#212#0" expanded="true" />
@@ -716,6 +696,34 @@
             <element signature="e#334#335#0" expanded="true" />
             <element signature="e#1238#1247#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/versiones/3.3/Example.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor vertical-scroll-proportion="0.47468355">
+            <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

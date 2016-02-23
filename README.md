@@ -1,9 +1,15 @@
-# cdi_practica_1
+# Práctica 1
+
+**Autores:**
+
+> Víctor José Malvárez Filgueira
+
+> Martín Molina Álvarez
 
 ## 1. Introducción a los hilos java
 
 ### 1.1   Examina  las  dos  formas  que  provee  Java  para  crear  un  hilo:  la  clase Thread y  la  interfaz Runnable
-(Sin respuesta)
+g(Sin respuesta)
 
 
 ### 1.2   Utiliza ambas formas para crear un programa que cree y ejecute un hilo que imprima en pantalla un mensaje como Hello world, I’m a java thread.
