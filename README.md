@@ -28,15 +28,15 @@ ID: 3, Name: Finalizer
 
 ## 2. Creación de múltiples hilos
 
-### 1. Escribe un programa en Java que mediante parámetros de línea de commando reciba cuantos hilos se debe crear. El programa creará y ejecutará el número de hilos indicado. Cada hilo debe imprimir en pantalla un mensaje como Hello, I’m thread number X , y después de un segundo, un mensaje como Bye, this was thread number X , siendo X el valor de un contador que se va incrementando con el número de hilos creados.
+### 2.1 Escribe un programa en Java que mediante parámetros de línea de commando reciba cuantos hilos se debe crear. El programa creará y ejecutará el número de hilos indicado. Cada hilo debe imprimir en pantalla un mensaje como Hello, I’m thread number X , y después de un segundo, un mensaje como Bye, this was thread number X , siendo X el valor de un contador que se va incrementando con el número de hilos creados.
 
-### 2. Queremos ahora medir el tiempo que tardan en ejecutarse todos los hilos que se crean. Copia y modifica el programa anterior para que muestre este tiempo. Asegúrate de quitar cualquier código que implemente esperas en el hilo, que pudieras haber añadido anteriormente, para medir realmente sólo el tiempo de ejecución de los hilos.
+### 2.2 Queremos ahora medir el tiempo que tardan en ejecutarse todos los hilos que se crean. Copia y modifica el programa anterior para que muestre este tiempo. Asegúrate de quitar cualquier código que implemente esperas en el hilo, que pudieras haber añadido anteriormente, para medir realmente sólo el tiempo de ejecución de los hilos.
 
-### 3. ¿Cómo debemos hacer para asegurarnos de que la medida de tiempo sea fiable? Es decir, que realmente se mide el tiempo desde que se arranca el primer hilo hasta que todos los hilos hayan finalizado. ¿Qué errores de medida de tiempo pueden ocurrir, si no nos aseguramos de que todos los hilos han acabado?
+### 2.3 ¿Cómo debemos hacer para asegurarnos de que la medida de tiempo sea fiable? Es decir, que realmente se mide el tiempo desde que se arranca el primer hilo hasta que todos los hilos hayan finalizado. ¿Qué errores de medida de tiempo pueden ocurrir, si no nos aseguramos de que todos los hilos han acabado?
 Utilizando em metodo join en cada hilo.
 Que se ejecute el codigo del main antes de que termine el ultimo hilo.
 
-### 4.  Copia y modifica el programa para que cada hilo mida él mismo el tiempo que tarda en ejecutarse y guarde el valor en un atributo accesible públicamente. Una vez finalizados todos los hilos, haz que el programa principal sume todos estos valores y muestre en pantalla el resultado. ¿Este valor será mayor o menor que el tiempo global que ya estabas midiendo? ¿Por qué? ¿Te sirve esta suma para algo? ¿Qué harías tú con estos valores para tener algo interesante? Compara tus mediciones con la salida del comando time en Linux que te ofrece tiempo real, tiempo del user y tiempo del sistema.
+### 2.4  Copia y modifica el programa para que cada hilo mida él mismo el tiempo que tarda en ejecutarse y guarde el valor en un atributo accesible públicamente. Una vez finalizados todos los hilos, haz que el programa principal sume todos estos valores y muestre en pantalla el resultado. ¿Este valor será mayor o menor que el tiempo global que ya estabas midiendo? ¿Por qué? ¿Te sirve esta suma para algo? ¿Qué harías tú con estos valores para tener algo interesante? Compara tus mediciones con la salida del comando time en Linux que te ofrece tiempo real, tiempo del user y tiempo del sistema.
 
 El tiempo total es mayor. Este tiempo es similar al que se tardaría si no se utilizase un sistema concurrente y cada hilo se ejecutase en secuencial.
 
@@ -44,13 +44,13 @@ Esta suma no es fiable. Desde que se ejecuta el hilo (empieza a contar el tiempo
 
 El tiempo real coincide con el tiempo de ejecucción de hilos global. El tiempo de usuario es mayor que el tiempo del sistema debido a que el tiempo del usuario es el tiempo que está "en el procesador" ejecutándose y el tiempo de sistema es el tiempo que está "en el kernel" ejecutándose.
 
-### 5. Trata de modificar el programa para poder distinguir entre tiempo de creación de hilos, tiempo de ejecución de los hilos y tiempo de sincronzación final de los hilos*. Si tan pronto como se crea cada hilo ya se intenta ejecutar, ¿se puede distinguir entre estos tiempos? ¿Qué consecuencias tiene esto a la hora de diseñar y evaluar soluciones concurrentes a un problema?
+### 2.5 Trata de modificar el programa para poder distinguir entre tiempo de creación de hilos, tiempo de ejecución de los hilos y tiempo de sincronzación final de los hilos*. Si tan pronto como se crea cada hilo ya se intenta ejecutar, ¿se puede distinguir entre estos tiempos? ¿Qué consecuencias tiene esto a la hora de diseñar y evaluar soluciones concurrentes a un problema?
 
 No.
 
 Si se crea el hilo y se intenta ejecutar no se puede distinguir el tiempo de creación con el de ejecucción de manera precisa.
 
-### 6.  Copia y modifica el programa para que los hilos o bien muestren algo por pantalla o bien que hagan por ejemplo unas operaciones matemáticas suficientemente complejas. Distingue el modo de ejecución mediante un parámetro en línea de comando. La ejecución del programa por prueba debe durar unos segundos para obtener mediciones interpretables. Pruébalo con un número creciente de hilos para conseguir finalmente una función de tiempo de ejecución en relación al número de hilos trabajadores (y modo de ejecución). ¿Cambia mucho el tiempo de ejecución respecto a cuándo se mostraba algo en pantalla? ¿Por qué crees que ocurre esto? ¡Interpreta detenidamente los gráficos que obtienes!
+### 2.6  Copia y modifica el programa para que los hilos o bien muestren algo por pantalla o bien que hagan por ejemplo unas operaciones matemáticas suficientemente complejas. Distingue el modo de ejecución mediante un parámetro en línea de comando. La ejecución del programa por prueba debe durar unos segundos para obtener mediciones interpretables. Pruébalo con un número creciente de hilos para conseguir finalmente una función de tiempo de ejecución en relación al número de hilos trabajadores (y modo de ejecución). ¿Cambia mucho el tiempo de ejecución respecto a cuándo se mostraba algo en pantalla? ¿Por qué crees que ocurre esto? ¡Interpreta detenidamente los gráficos que obtienes!
        
        
 > ¡Es interesante que antes de realizar las mediciones intentes predecir los resultados por lo menos
@@ -63,6 +63,15 @@ El tiempo al realizar una operación matemática compleja es superior al tiempo 
 
 A medida que se añaden más hilos (x10 en cada paso) el tiempo total es lineal (se ve multiplicado por 10) salvo entre 1000 y 1000.
 (ver anexos 2.6.1 y 2.6.2).
+
+## 3. Control básico de múltiples hilos
+
+### 3.1  Estudia en detalle la utilidad del método `interrupt()` de la clase Thread. ¿Qué limitaciones tiene? ¿Cómo debe ser utilizado? Aunque existen otros métodos en la clase `Thread` como `stop()` o `suspend()` ¿Por qué crees que el método `interrupt()` es el método recomendado para detener un hilo?
+
+
+
+
+
 
 
 
