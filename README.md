@@ -59,7 +59,10 @@ Si se crea el hilo y se intenta ejecutar no se puede distinguir el tiempo de cre
 > operativo, y máquina virtual de Java!
 
 
+El tiempo al realizar una operación matemática compleja es superior al tiempo de escritura en pantalla por la propia naturaleza del algoritmo matemático (generar números aleatorios en 1 y 1 millón hasta encontrar uno que sea primo).
 
+A medida que se añaden más hilos (x10 en cada paso) el tiempo total es lineal (se ve multiplicado por 10) salvo entre 1000 y 1000.
+(ver anexos 2.6.1 y 2.6.2).
 
 
 
