@@ -5,8 +5,10 @@ package examplerunnable;
  */
 public class InterruptedExample implements Runnable {
     private String name;
-    public InterruptedExample(String name){
+    private boolean usarIsInterrupted;
+    public InterruptedExample(String name, boolean usarIsInterrupted){
         this.name = name;
+        this.usarIsInterrupted = usarIsInterrupted;
     }
 
     public void run(){
@@ -17,41 +19,65 @@ public class InterruptedExample implements Runnable {
             System.out.println("run() - Exception in work");
             return;
         }
-        //Nunca se llega aquí
+        //Solo se llega hasta aquí con Thread.interrupted()
         System.out.println("run() - After work");
     }
 
+    /**
+     * Llama a Thread.interrupted() o Thread.currentThread().isInterrupted() dependiendo del segundo argumento
+     */
+    private boolean estaInterrumpido(){
+        return this.usarIsInterrupted ? Thread.currentThread().isInterrupted() : Thread.interrupted();
+    }
+
+    /**
+     * Hace un bucle infinito mientras alguien no lo despierta
+     * @throws InterruptedException
+     */
     private void work() throws InterruptedException {
         while(true){
-            //isInterrupted() no cambia el flag de estado
-            if(Thread.currentThread().isInterrupted()){
+            if(estaInterrumpido()){
                 System.out.println("work() - State A");
                 //Puede lanzar excepcion
-                //Cada vez que se interrumpe el thread va a lanzar excepción y salir del bucle infinito
+                //Si el flag de interrupcion está activado se lanza una InterruptedException
                 Thread.sleep(2000);
-                //Nunca se va a llegar a este estado porque el sleep va a lanzar una InterruptedException
-                //debido a que este está interrumpido
-                System.out.println("work() - State B");
+                //Solo se llega hasta aquí si no se ha lanzado InterruptedException, es decir, se ha usado
+                //Thread.interrupted() en el método estaInterrumpido()
+                System.out.println("work() - State B (Thread.interrupted())");
+                return;
             }
         }
     }
 
     public static void main(String[] args){
-        InterruptedExample r = new InterruptedExample("thread-1");
+
+        //Instanciamos el objeto que implementa Runnable con la opción de usar isInterrupted()
+        InterruptedExample r = new InterruptedExample("thread-isinterrupted", true);
         Thread t = new Thread(r);
 
         t.start();
 
-        //Bloque try-catch para el sleep
         try {
            Thread.sleep(2000);
-        } catch (InterruptedException e){
-            System.out.println("Somethig");
-        }
+        } catch (InterruptedException e){}
 
         t.interrupt();
 
-        System.out.println("main() finished");
+        System.out.println("main() finished with isInterrupted()");
+
+        //Instanciamos el objeto que implementa Runnable con la opción de usar interrupted()
+        r = new InterruptedExample("thread-isinterrupted", false);
+        t = new Thread(r);
+
+        t.start();
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e){}
+
+        t.interrupt();
+
+        System.out.println("main() finished with isInterrupted()");
 
     }
 }

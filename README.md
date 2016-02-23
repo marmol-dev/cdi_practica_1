@@ -74,11 +74,11 @@ En el método run (o métodos que sean invocados a partir de este) se debe compr
 
 Sí, es preferible utilizar `interrupt` porque permite al programador establecer la forma en la que debe terminar un hilo. El método `suspend` no se debe utilizar para finalizar un hilo porque no libera la memoria del thread ya que permite que este sea renaudado con el método `resume`.
 
-### 3.2 ¿Qué diferencia hay entre los métodos `interrupted()` y `isInterrupted()``? Elabora un programa en Java que demuestre claramente cómo funcionan los dos y en qué se diferencian.
+### 3.2 ¿Qué diferencia hay entre los métodos `interrupted()` y `isInterrupted()`? Elabora un programa en Java que demuestre claramente cómo funcionan los dos y en qué se diferencian.
 
-El método `interrupted()` es un método estático de la clase `Thread` que permite comprobar si el thread actual ha sido interrumpido.
+El método `interrupted()` es un método estático de la clase `Thread` que permite comprobar si el thread actual ha sido interrumpido. Cada vez que se invoca el flag que contiene si el thread está interrumpido o no se resetea, es decir, limpia las interrupciones.
 
-El método `isInterrupted()` es un método de instancia de `Thread` que permite comprobar si ese thread ha sido interrumpido.
+El método `isInterrupted()` es un método de instancia de `Thread` que permite comprobar si ese thread ha sido interrumpido. Mantiene el flag de interrupciones sin modificarlo.
 
 
 
